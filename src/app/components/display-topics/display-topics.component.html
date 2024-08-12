@@ -1,0 +1,36 @@
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand">TopiCrud</a>
+        <form class="d-flex" role="search">
+            <button class="btn btn-outline-success" type="submit" routerLink="/addTopic">Add Topic</button>
+        </form>
+    </div>
+</nav>
+
+<h1><span class="blue">&lt;</span>Table<span class="blue">&gt;</span> <span class="yellow">Responsive</span></h1>
+<h2>Created with love by <a href="https://github.com/HMAIDIMOHAMED/" target="_blank">HMAIDI MOHAMED</a></h2>
+
+<table class="container">
+    <thead>
+        <tr>
+            <th><h1>Id</h1></th>
+            <th><h1>Title</h1></th>
+            <th><h1>Description</h1></th>
+            <th><h1>Actions</h1></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let topic of topics">
+            <td>{{ topic.id }}</td>
+            <td>{{ topic.title }}</td>
+            <td>{{ topic.description }}</td>
+            <td>
+                <button class="btn btn-info" >Éditer</button>
+                <button class="btn btn-danger" >Supprimer</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
