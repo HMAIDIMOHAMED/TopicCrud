@@ -1,5 +1,5 @@
 export class Topic {
-    id !: string;
+    id !: number;
     title !: string;
     description !: string;
 }

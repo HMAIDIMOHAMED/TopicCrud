@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TopicserviceService } from '../../services/topicservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-topics',
@@ -10,7 +11,8 @@ export class DisplayTopicsComponent {
 
   topics: any[] = [];
 
-  constructor(private topicService : TopicserviceService){}
+
+  constructor(private topicService : TopicserviceService, private router:Router){}
 
   ngOnInit() {
     this.displayAllTopics(); 
@@ -25,5 +27,23 @@ export class DisplayTopicsComponent {
         console.error('Error fetching topics:', error);
       }
     );
+  }
+
+  updateTopic(id: number){
+    this.router.navigate(['updateTopic',id])
+  }
+  deleteTopic(id: number): void {
+    if (confirm(`Are you sure you want to delete topic "${id}"?`)) {
+      this.topicService.deleteTopic(id).subscribe(
+        () => {
+          alert(`Topic "${id}" deleted successfully!`);
+          this.displayAllTopics(); 
+        },
+        error => {
+          alert(`Failed to delete product "${id}".`);
+          console.error('Error deleting topic:', error);
+        }
+      );
+    }
   }
 }

@@ -27,8 +27,8 @@
             <td>{{ topic.title }}</td>
             <td>{{ topic.description }}</td>
             <td>
-                <button class="btn btn-info" >Éditer</button>
-                <button class="btn btn-danger" >Supprimer</button>
+                <button class="btn btn-info" (click)="updateTopic(topic.id)" >Éditer</button>
+                <button class="btn btn-danger" (click)="deleteTopic(topic.id)" >Supprimer</button>
             </td>
 
         </tr>
