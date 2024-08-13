@@ -71,6 +71,9 @@
                 </configuration>
             </plugin>
         </plugins>
+      <finalName>TopicCrud</finalName>
     </build>
+
+
 
 </project>
